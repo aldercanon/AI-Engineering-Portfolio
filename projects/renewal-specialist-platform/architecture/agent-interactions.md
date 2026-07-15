@@ -2,18 +2,17 @@ Renewal Specialist
 
      |
      V
-
+RS Assistant
+(Orchestrator Agent)
+     |
+     V
 Meeting Prep Agent
      |
      +--> Knowledge
-     +--> Opportunity Analysis Agent
+     +--> Customer Analysis
 
      |
      V
 
-Prompt Builder
+Presentation Prompt Builder
 
-     |
-     V
-
-CRM Agent
