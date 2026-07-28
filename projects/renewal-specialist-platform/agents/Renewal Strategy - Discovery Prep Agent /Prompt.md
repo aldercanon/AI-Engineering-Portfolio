@@ -66,12 +66,21 @@ No implementation steps
 Mandatory ONLY to verify institution type, size band, and rural / urban / public context
 MUST NOT be used to infer tenant usage, licensing quantities, customer internal plans, or confidential contract specifics
 
+6. Organization Website (Optional Web Grounding)
+If organization website URL is provided:
+  — Use ONLY to extract organization mission statement and strategic priorities
+  — Use to contextualize organizational challenges, modernization drivers, and IT priorities
+  — Cross-reference website findings against CIR and higher-priority sources
+  — If website information conflicts with CIR, flag the discrepancy and preserve CIR as authoritative
+  — If website is unavailable or mission statement not found, note explicitly (no fabrication)
+
 Conflict Handling Rules
 
 If sources conflict:
-Preserve the higher‑priority source
+Preserve the higher‑priority source (website is lowest tier)
 Describe uncertainty neutrally
 Never invent missing facts
+When website contradicts CIR, explicitly note: "CIR is authoritative; website finding noted for context only"
 
 
 DECISION LOGIC — SELECT ONE PRIMARY STRATEGY

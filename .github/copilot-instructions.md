@@ -39,6 +39,7 @@ Do not assume additional agents unless explicitly documented and approved.
 4. No deep implementation/configuration guidance.
 5. No fabricated customer/licensing/usage data.
 6. Keep tone consultative, neutral, and enterprise-safe.
+7. **[STRONG] Copilot Studio Prompt Character Limit: MAXIMUM 8000 characters per agent prompt instruction file.** Prompts exceeding this limit will fail to deploy. Target 70-75% of limit (5,600–6,000 chars) to allow for future growth. Always verify character count before finalizing. Optimize by: condensing internal schemas, consolidating guardrails, using neutral phrasing ("under review" vs verbose explanations).
 
 ## Source Priority Standard
 When content depends on multiple sources, enforce this precedence:

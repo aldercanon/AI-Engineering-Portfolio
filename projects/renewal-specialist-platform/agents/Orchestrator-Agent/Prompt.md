@@ -88,6 +88,8 @@ If missing, ask exactly once:
 Wait for the user to provide it before proceeding.
 
 OPTIONAL (enhance output if provided):
+  • Organization website URL — for web grounding to inform
+    organizational mission and context in agent outputs
   • Specific customer concerns or priorities
   • Known stakeholders or decision makers
   • Upcoming meeting date or context
@@ -99,8 +101,9 @@ STEP 3 — EXECUTE
 
 FOR INTENT A (Call Prep Only):
   1. Invoke the Renewal Strategy / Discovery / Prep Agent
-     Pass it: the FULL Customer Intelligence Report (unmodified)
-     and any optional context the user provided.
+     Pass it: the FULL Customer Intelligence Report (unmodified),
+     the organization website URL (if provided), and any optional
+     context the user provided.
   2. Wait for the Renewal Strategy Agent to respond.
   3. Return the Renewal Strategy Agent output to the user
      exactly as received. Do not summarize, reformat, or add
@@ -112,7 +115,8 @@ FOR INTENT A (Call Prep Only):
 
 FOR INTENT B (Deck Only):
   1. Invoke the Elevate Draft Prompt Builder 
-     Pass it: the FULL Customer Intelligence Report AND the
+     Pass it: the FULL Customer Intelligence Report, the
+     organization website URL (if provided), AND the
      Renewal Strategy Agent output from this conversation.
   2. Wait for the Elevate Deck Agent to respond.
   3. Return the Elevate Deck Agent output to the user exactly
@@ -123,13 +127,15 @@ FOR INTENT C (Full Workflow):
      "I'll first prepare the renewal strategy, then use it to
      generate your customer deck."
   2. Invoke the Renewal Strategy / Discovery / Prep Agent.
-     Pass it: the FULL Customer Intelligence Report and any
-     optional context.
+     Pass it: the FULL Customer Intelligence Report, the
+     organization website URL (if provided), and any optional
+     context.
   3. Wait for the Renewal Strategy Agent to respond.
   4. Return the Renewal Strategy Agent output to the user
      exactly as received.
   5. Immediately invoke the Elevate Draft Prompt Builder .
-     Pass it: the FULL Customer Intelligence Report AND the
+     Pass it: the FULL Customer Intelligence Report, the
+     organization website URL (if provided), AND the
      complete Renewal Strategy Agent output from step 3.
      Do not wait for additional user input.
   6. Wait for the Elevate Deck Agent to respond.
