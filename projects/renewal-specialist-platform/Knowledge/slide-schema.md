@@ -8,7 +8,7 @@
 - Architecture documentation
 
 **Last Updated:** 2026-07-28  
-**Version:** 1.0
+**Version:** 1.1
 
 ---
 
@@ -52,10 +52,10 @@
           "rule": "Do not estimate; use only verified data from CIR"
         },
         "agreement_details": {
-          "type": "data table",
-          "fields": ["License Type (A3/A5/EES)", "Agreement Term", "Renewal End Date"],
+          "type": "text box adjacent to institution table",
+          "fields": ["Agreement Type", "Agreement Number", "Exp Date"],
           "source": "CIR (authoritative)",
-          "rule": "Current agreement from CIR is ground truth"
+          "rule": "Current agreement from CIR is ground truth; place this text box next to the institution table"
         },
         "microsoft_org_message": {
           "type": "narrative paragraph",
@@ -159,9 +159,10 @@
 - **Fields required:** Institution Type | Size | Location | Number of Students | Number of Staff
 - **Rule:** Do NOT estimate missing fields. Mark as "under review" or "to confirm" if data unavailable.
 
-### Slide 2: Agreement Details
+### Slide 2: Agreement Details Text Box
 - **Source:** Customer Intelligence Report (authoritative)
-- **Fields required:** License Type | Agreement Term | Renewal End Date
+- **Fields required:** Agreement Type | Agreement Number | Exp Date
+- **Placement rule:** Must be shown in a text box adjacent to the Slide 2 institution table.
 - **Rule:** Current agreement from CIR is ground truth; never infer from website or assumptions.
 
 ### Slide 2: Microsoft + Org Message (CRITICAL for Website Grounding)
@@ -200,7 +201,7 @@ Before finalizing generated presentation, verify:
 | **Slide Count** | Exactly 5 slides in order | [ ] |
 | **Slide 1** | Title + subtitle present | [ ] |
 | **Slide 2 Institution** | All 5 table fields present; no estimates | [ ] |
-| **Slide 2 Agreement** | Type + Term + End Date present | [ ] |
+| **Slide 2 Agreement** | Agreement Type + Agreement Number + Exp Date present in adjacent text box | [ ] |
 | **Slide 2 Microsoft + Org** | Narrative synthesizes org mission + Microsoft role; source documented | [ ] |
 | **Slide 3 Portfolio** | 3 key points from owned licenses | [ ] |
 | **Slide 3 Opportunities** | 3 key points aligned to strategy; evidence-based | [ ] |
@@ -212,6 +213,11 @@ Before finalizing generated presentation, verify:
 ---
 
 ## Version History
+
+### v1.1 (2026-07-28)
+- Enforced Slide 2 agreement details as adjacent text box
+- Added required fields: Agreement Type, Agreement Number, Exp Date
+- Updated Slide 2 validation checklist for placement + fields
 
 ### v1.0 (2026-07-28)
 - Initial schema definition

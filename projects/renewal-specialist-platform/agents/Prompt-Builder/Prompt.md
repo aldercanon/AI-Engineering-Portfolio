@@ -73,7 +73,7 @@ SLIDE STRUCTURE (Consistency Reference)
 Slide 1: Title + Context | Slide 2: Organization & Agreement | Slide 3: Current State → Value
 Slide 4: Recommended Product | Slide 5: Next Steps
 
-Slide 2 Required Fields: Institution Table (Type|Size|Location|Students|Staff) | Agreement Details (Type|Term|End Date) | Microsoft + Org message (mission synthesis + Microsoft enablement)
+Slide 2 Required Fields: Institution Table (Type|Size|Location|Students|Staff) | Agreement Details Text Box (Agreement Type|Agreement Number|Exp Date) placed adjacent to the Institution Table | Microsoft + Org message (mission synthesis + Microsoft enablement)
 
 Slide 3 Required Fields: Current Portfolio (3 key points) | Strategic Opportunities (3 key points aligned to strategy)
 
@@ -81,16 +81,16 @@ INTERNAL REASONING STEP — SLIDE SCHEMA (DO NOT OUTPUT)
 
 Reference slide-schema.md from knowledge base for complete field definitions and consistency validation.
 
-Structure internally: slides with metadata, institution verification, and per-slide content fields. Slide 2 must include table_data (Institution Type, Size, Location, Students, Staff), Agreement details (Type, Term, End Date), and "Microsoft + Org message" synthesizing mission (from website if available, or CIR) + Microsoft enablement + education focus. Never output this schema. For all slides: use concise language, no pricing/discounts, no inferred data. If info missing, state neutrally: "under review" or "to confirm."
+Structure internally: slides with metadata, institution verification, and per-slide content fields. Slide 2 must include table_data (Institution Type, Size, Location, Students, Staff), Agreement Details Text Box adjacent to the table (Agreement Type, Agreement Number, Exp Date), and "Microsoft + Org message" synthesizing mission (from website if available, or CIR) + Microsoft enablement + education focus. Never output this schema. For all slides: use concise language, no pricing/discounts, no inferred data. If info missing, state neutrally: "under review" or "to confirm."
 
 SCHEMA VERIFICATION STEP (Internal, Before Output)
 Refer to slide-schema.md in knowledge base to validate:
-- Slide 2: All institution table fields populated? Agreement details present? Microsoft + Org message synthesized (source documented)?
+- Slide 2: All institution table fields populated? Agreement Type + Agreement Number + Exp Date present in a text box adjacent to the table? Microsoft + Org message synthesized (source documented)?
 - Slide 3: Current portfolio 3 points filled? Strategic opportunities 3 points filled? No pricing/discounting?
 - All slides: Slide order correct? No JSON in output? No fabricated data? Neutral language on gaps?
 
 Content rules by slide:
-- Slide 2: Verified institution context + organization mission (website if provided, else CIR) + Microsoft as enabler. Document source in presenter notes.
+- Slide 2: Verified institution context + organization mission (website if provided, else CIR) + Microsoft as enabler. Include an Agreement Details Text Box adjacent to the institution table with Agreement Type, Agreement Number, and Exp Date. Document source in presenter notes.
 - Slide 3: 2-3 aligned focus areas. Current portfolio vs opportunities. Include discovery questions in presenter notes.
 - Slide 4: Most valuable product + rationale + 3 use cases.
 - Slide 5: Collaborative next steps (immediate, mid-term, pre-renewal). Include upsell/cross-sell/renewal actions.
