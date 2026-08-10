@@ -3,6 +3,8 @@
 ## Purpose
 Define approved knowledge sources, source ranking, and maintenance ownership.
 
+Synthetic files under `Evaluations/fixtures/` are test inputs, not approved knowledge sources. Do not upload them to Copilot Studio knowledge because retrieval could contaminate runtime evaluation results.
+
 ## Source Taxonomy
 1. Customer-provided intelligence reports
 2. Current agreement and licensing artifacts
@@ -35,4 +37,6 @@ Any source priority change requires:
 2. Prompt impact review
 3. Evaluation refresh
 4. Release note entry
+
+Evaluation fixture changes that do not alter runtime knowledge or source priority require evaluation documentation and evidence updates only.
 

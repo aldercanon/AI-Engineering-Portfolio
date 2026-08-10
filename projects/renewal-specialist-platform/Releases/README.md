@@ -37,6 +37,52 @@ If a release introduces regression:
 ## Release Log
 
 ### Version
+2026.08.10-runtime-evaluation-baseline
+
+### Date
+2026-08-10
+
+### Summary
+Added a versioned Copilot Studio runtime evaluation package for the Orchestrator, Renewal Strategy / Discovery / Prep Agent, Prompt Builder, and integrated workflow. The package includes 25 English-language import cases, representative expected agent responses, synthetic fixtures, evaluator configuration guidance, and manual multi-turn tests.
+
+### Impacted Components
+- Evaluations/readme.md: Runtime-only import, execution, triage, and evidence runbook
+- Evaluations/case-catalog.md: Row-level coverage, priority, method selection, and Custom evaluator instructions
+- Evaluations/test-sets/: Four importable CSV files
+- Evaluations/fixtures/: Three synthetic CIR profiles and controlled strategy handoffs
+- Evaluations/manual-workflow-tests.md: Stateful retry, refinement, and pass-through scenarios
+- README.md, projects/readme.md, and repository README.md: Navigation and evaluation scope
+- Knowledge/readme.md: Explicit separation between synthetic fixtures and runtime knowledge
+
+### Compatibility Notes
+- **Runtime behavior:** No change to prompts, routing, tools, inputs, or output contracts.
+- **Evaluation operation:** Test sets are imported and executed manually in Copilot Studio; no CI/CD or development pipeline integration was added.
+- **Language:** All imported questions and expected responses are in English.
+- **Expected responses:** Each value is a representative correct agent answer for semantic comparison, not an instruction describing expected behavior.
+
+### Risks and Mitigations
+- **Risk:** Generative wording differs from the representative expected response.
+  - **Mitigation:** Use Compare meaning rather than Text similarity or suite-wide Exact match; use Custom for structural contracts.
+- **Risk:** Evaluation metadata influences agent routing or output.
+  - **Mitigation:** Keep IDs and priorities in the external case catalog, not in CSV questions.
+- **Risk:** Synthetic fixture facts are retrieved during unrelated runtime cases.
+  - **Mitigation:** Keep fixtures repository-only and do not upload them as Copilot Studio knowledge.
+- **Risk:** Documentation is mistaken for runtime validation evidence.
+  - **Mitigation:** Initial baseline status remains pending until all P0 runtime results are recorded.
+
+### Validation Evidence
+- CSV structure validated for exact `question` and `expectedResponse` columns
+- 25 total cases across four files; all questions are below the 500-character import limit
+- English-language scan completed for all imported questions
+- Privacy scan completed: no source customer names, domains, tenant IDs, subscription GUIDs, agreement identifiers, email addresses, or URLs are present; all scenario data is explicitly fictional
+- Runtime import and execution evidence: Pending in Copilot Studio
+
+### Rollback Guidance
+Remove the imported test sets from Copilot Studio if they interfere with evaluation operations. Repository evaluation assets can be reverted independently because no runtime prompts or architecture contracts changed.
+
+---
+
+### Version
 2026.07.28-website-grounding-agents
 
 ### Date

@@ -11,19 +11,30 @@ Multi-agent Copilot Studio platform supporting Renewal Specialists.
 - Licensing guidance
 
 ## Architecture
-See /architecture
+See [architecture/solution-overview.md](architecture/solution-overview.md) and [architecture/agent-interactions.md](architecture/agent-interactions.md).
 
 ## Agents
-See /agents
+See [agents](agents).
 
 ## Knowledge Sources
 See /Knowledge
 
 ## Evaluations
-See /Evaluations
+
+See [Evaluations/readme.md](Evaluations/readme.md) for the Copilot Studio runtime evaluation runbook.
+
+The evaluation package includes:
+
+- Four importable English-language CSV test sets covering each agent and the integrated workflow
+- Twenty-five runtime cases with representative expected agent responses
+- Synthetic CIR and strategy fixtures that are not uploaded as runtime knowledge
+- Recommended Tool use, Custom, Compare meaning, and General quality configurations
+- Manual multi-turn tests for retry, refinement, state, and output pass-through
+
+These assets are executed manually in Copilot Studio. They are not part of CI/CD or a development test pipeline. The initial runtime baseline remains pending until execution evidence is captured.
 
 ## Releases
-See /Releases
+See [Releases/README.md](Releases/README.md).
 
 ## Significant Change Review Template
 Use this template for any change that affects prompts, routing behavior, data sources, or agent boundaries.
@@ -71,4 +82,4 @@ A significant change is complete only when all items below are satisfied.
 2. Impacted prompt definitions updated consistently.
 3. Evaluation scenarios updated or added.
 4. Release notes updated with compatibility impact.
-5. Baseline scenario walkthroughs pass (prep only, deck only, full workflow).
+5. Runtime evaluation evidence confirms prep-only, deck-only, full-workflow, gating, retry, and refinement behavior in Copilot Studio.
