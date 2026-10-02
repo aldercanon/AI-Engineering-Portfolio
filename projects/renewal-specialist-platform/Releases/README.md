@@ -37,6 +37,53 @@ If a release introduces regression:
 ## Release Log
 
 ### Version
+2026.09.30-education-resources (repository implementation; runtime validation pending)
+
+### Date
+2026-09-30 (repository change date, not a deployment date)
+
+### Summary
+Expanded scope to K-12 districts, universities, and community colleges. Added evidence-based Copilot expansion, A3-to-A5, Azure migration, and security growth targeting without assuming security readiness. Replaced the seller's Section 3 internal Prep Brief with Available Resources. Retained five customer slides using the same approved education template and customer-appropriate resource actions on Slide 5.
+
+Follow-up refinement uses additional prompt space at the user's request: explicit evidence-to-recommendation steps, account-specific context reuse, dependent-worker failure handling, assessment interpretation, and seller-to-customer content filtering. No additional output sections, slides, resource thresholds, or runtime-guidance capabilities are introduced.
+
+### Impacted Components
+- All three agent prompts: education scope, resource ownership, revised report handoff, and shared template wording.
+- Knowledge/slide-schema.md: v1.2 education metadata and Slide 5 resource constraints; required field shapes unchanged.
+- architecture/solution-overview.md and architecture/agent-interactions.md: ownership, compatibility, and seller/customer content separation.
+- Project README.md: significant-change review and deferred regression plan.
+- Evaluation assets and runtime configuration: no changes or execution in this implementation.
+
+### Compatibility Notes
+- Strategy still returns three sections, but Section 3 is now Available Resources. Consumers expecting an internal Prep Brief must update; this is a content-contract change.
+- Deck count/order and Slide 4's one-product structure remain unchanged. Historical Strategy outputs do not establish resource eligibility; refresh preparation when new resource recommendations are needed.
+- Orchestrator retains intent priority, required CIR, full-workflow fallback, unchanged worker output pass-through, and retry behavior. Resource-only requests and resource/confirmation refinements explicitly route to Strategy.
+- Assessment minimums use strict `>` and CIR-confirmed quantities, with both Master Class conditions required. Criteria met does not guarantee relevance, readiness, or availability.
+- ETC eligibility remains seller-validated during the call/session; accept explicit confirmation, never infer it. Partner resources remain generic seller references, not specific offers or recommendations.
+- No fiscal-guidance file, new fiscal-year logic, timing gate, new template, agent, connector, or evaluation package is added.
+
+### Risks and Mitigations
+- **Unsupported upsell or implied security readiness:** Strategy requires evidence and validates readiness independently; deck content preserves relevant gaps.
+- **False resource qualification:** Strict thresholds, unknown handling for ambiguous quantities, and separate availability checks; no delivery promises.
+- **Seller details exposed:** Exclude internal criteria/status notes and partner reminders from slides and presenter notes; require seller-confirmed ETC before customer actions.
+- **Contract drift:** Version the Section 3 replacement and schema together. Deploy the matching prompts/schema as a coordinated set; old evaluation expectations require later user-approved revision.
+- **Runtime regression:** Static checks are not runtime evidence. Evaluation updates and execution are paused by user request; runtime readiness is not asserted.
+- **Reduced prompt headroom:** More operational detail intentionally exceeds the preferred 5,600-6,000-character target. Retain the hard 8,000-character limit and recheck counts after every edit; smallest remaining margin is 229 characters.
+
+### Validation Evidence
+- Static prompt character counts: Orchestrator 7,529; Strategy 7,667; Prompt Builder 7,771. All below the hard 8,000-character limit, leaving 471, 333, and 229 characters respectively.
+- Static checks passed for three Strategy sections, supplied assessment-rule text, CIR/context handoffs, intent order, and readiness/ETC safeguards.
+- Slide schema JSON parsed with exactly five ordered slides and unchanged Slide 5 field names.
+- Runtime deployment, evaluation imports, and execution: not performed. Baseline scenarios remain unvalidated for this change.
+- Deferred coverage: education segments, section replacement, thresholds and unknowns, readiness gaps, ETC confirmation, partner references, seller/customer separation, plus prep-only, deck-only, full workflow, missing CIR, worker retry, and refinement.
+- Additional deferred edge cases: same-account reuse versus account switch, Strategy failure halting full workflow, deck-only worker retry, unknown/no-resource outputs accepted as complete, unknown readiness without asserting insecurity, and resource availability confirmation without delivery promises.
+
+### Rollback Guidance
+If published behavior regresses, restore the last known-good versions of all three prompts and the matching slide-schema knowledge document together in Copilot Studio. Restore the old three-section meaning (including Prep Brief), K-12-only scope/template wording, and previous resource behavior. Update repository contracts to match the restored runtime; preserve existing evaluation assets while review remains paused and record the incident. This entry does not authorize publication or claim a runtime pass.
+
+---
+
+### Version
 2026.08.10-runtime-evaluation-baseline
 
 ### Date

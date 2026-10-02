@@ -7,8 +7,9 @@
 - QA/Evaluation (validation of generated slide structure)
 - Architecture documentation
 
-**Last Updated:** 2026-07-28  
-**Version:** 1.1
+**Last Updated:** 2026-09-30
+
+**Version:** 1.2
 
 ---
 
@@ -17,13 +18,13 @@
 ```json
 {
   "presentation_metadata": {
-    "audience": "K-12 District Leadership",
+    "audience": "Leadership and IT decision makers in K-12 districts, universities, or community colleges; education institution if type is unknown",
     "role": "Microsoft Renewals Specialist",
     "objective": "Support Microsoft 365 Education renewal and evidence-based growth discussion",
     "tone": "Professional, consultative, education-focused",
-    "template_instruction": "Use the approved Microsoft Education K-12 template for styling, layout, fonts, colors",
+    "template_instruction": "Use the approved education template for styling, layout, fonts, colors",
     "institution_verification": {
-      "type": "K-12 district",
+      "type": "K-12 district / university / community college / unknown (verified context only)",
       "size_band": "small/medium/large (by enrollment or staff)",
       "rural_urban": "rural/suburban/urban (from verified public source)",
       "sources": ["CIR if provided", "web verification for classification only"]
@@ -131,17 +132,17 @@
         "immediate_actions": {
           "type": "1-2 collaborative actions",
           "content": "[Action 1: Discovery validation, stakeholder alignment, etc.]",
-          "rule": "Non-blocking, collaborative tone"
+          "rule": "Non-blocking, collaborative tone; may include customer-appropriate resource actions from Strategy subject to the Slide 5 resource rules below"
         },
         "mid_term_actions": {
           "type": "1-2 mid-term actions",
           "content": "[Action 2: Proof of value, pilot deployment, etc.]",
-          "rule": "Aligned to selected strategy"
+          "rule": "Aligned to selected strategy; resource actions remain subject to the Slide 5 resource rules below"
         },
         "pre_renewal_actions": {
           "type": "1-2 renewal-focused actions",
           "content": "[Action 3: Contract review, licensing alignment, expansion decision, etc.]",
-          "rule": "Support renewal process; no pressure language"
+          "rule": "Support renewal process; no pressure language; resource actions remain subject to the Slide 5 resource rules below"
         }
       },
       "presenter_notes": "[Include: timeline, stakeholders involved, success criteria, upsell/cross-sell opportunities if applicable]"
@@ -153,6 +154,12 @@
 ---
 
 ## Field Validation Rules
+
+### Education Context and Strategy Handoff
+- Support K-12 districts, universities, and community colleges using the same approved education template.
+- Use verified institution terminology; do not infer priorities, quantities, or readiness from segment.
+- Consume Strategy's three sections: Sales Pitch Strategy, Tailored Discovery Questions, Available Resources. No separate internal prep brief is expected.
+- Preserve Strategy's evidence-based growth selection. Copilot ownership or expansion interest does not establish security readiness; retain relevant gaps and unknowns in customer-appropriate language.
 
 ### Slide 2: Institution Table
 - **Source:** Customer Intelligence Report only
@@ -190,6 +197,14 @@
 - **Slide 4 (Product):** No pricing, discounting, or negotiation language
 - **Slide 5 (Next Steps):** Collaborative tone; no pressure language
 
+### Slide 5: Resource Actions
+- Use relevant actions from Strategy's Available Resources within existing immediate, mid-term, or pre-renewal fields; no extra slide or resource catalog.
+- Strategy owns minimum-criteria checks. Do not independently qualify assessments or infer counts from student/staff totals.
+- Assessment actions require supported minimum criteria. If availability is unconfirmed, propose confirming availability; never promise access or delivery.
+- ETC actions require explicit seller-confirmed eligibility in Strategy; omit pending ETC qualification from customer content.
+- Keep internal criteria/status notes and generic partner-resource reminders out of both slides and presenter notes.
+- When no resource qualifies, retain evidence-based discovery/adoption next steps.
+
 ---
 
 ## Consistency Checks (For QA/Validation)
@@ -207,12 +222,20 @@ Before finalizing generated presentation, verify:
 | **Slide 3 Opportunities** | 3 key points aligned to strategy; evidence-based | [ ] |
 | **Slide 4 Product** | 1 product + 3 use cases; no pricing | [ ] |
 | **Slide 5 Next Steps** | Immediate + mid-term + pre-renewal; collaborative tone | [ ] |
+| **Slide 5 Resources** | Strategy-supported customer actions only; no availability promises or seller-only notes | [ ] |
+| **Education Context** | Verified segment terminology; shared approved education template; no inferred security readiness | [ ] |
 | **No JSON in Output** | Zero JSON/schema/internal reasoning in user output | [ ] |
 | **No Fabrication** | No estimated fields; all gaps marked "under review" | [ ] |
 
 ---
 
 ## Version History
+
+### v1.2 (2026-09-30)
+- Expanded audience to K-12 districts, universities, and community colleges using the same approved education template.
+- Aligned handoff with Available Resources replacing the internal prep brief in Strategy Section 3.
+- Added customer-appropriate resource actions within Slide 5; five-slide order and required field shapes unchanged.
+- Runtime evaluation updates and execution are deferred by request; schema checks are not runtime evidence.
 
 ### v1.1 (2026-07-28)
 - Enforced Slide 2 agreement details as adjacent text box

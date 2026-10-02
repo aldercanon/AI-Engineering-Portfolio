@@ -29,9 +29,11 @@ The orchestrator classifies each request into exactly one intent.
 Before invoking worker agents, the orchestrator must verify required inputs are present.
 
 - Required: Customer Intelligence Report
-- Optional enrichers: stakeholder context, known concerns, meeting context, prior notes
+- Optional enrichers: website URL, stakeholder context, known concerns, meeting context, prior notes, supplied education segment, explicit seller ETC confirmation
 
 If required input is missing, the orchestrator asks once and waits.
+
+Reuse context already supplied for the current account without asking for the same CIR again. A report or strategy for a different account is not reusable context for the new account. Keep seller corrections and concerns separate from the unmodified CIR, and pass the seller's exact ETC statement; an inquiry is not confirmation. Missing optional context does not introduce another mandatory gate.
 
 ### 3. Agent Invocation Patterns
 - Call preparation only: invoke Strategy/Discovery/Prep Agent and return output unchanged.
@@ -45,6 +47,10 @@ If a worker response is empty, errored, or clearly incomplete:
 2. Orchestrator reports the issue and offers retry or input adjustment.
 3. Retry path reuses the same context unless user provides updates.
 
+Check the visible output contract without rewriting worker content. Strategy must supply its three sections; Prompt Builder must supply one PowerPoint prompt without internal artifacts. Explicit unknowns and no confirmed resource are valid responses, not incompleteness.
+
+If Strategy fails during full workflow, stop before Prompt Builder. If only Prompt Builder fails, retain the successful Strategy output and retry the failed worker only when the user authorizes it. Do not automatically retry, pass partial strategy downstream, or claim a completed deck after a failure.
+
 ### 5. Follow-Up Modification Handling
 For user refinements, re-invoke the appropriate worker agent with:
 
@@ -52,21 +58,47 @@ For user refinements, re-invoke the appropriate worker agent with:
 2. Prior relevant output
 3. User's new constraints
 
+Resource criteria, growth recommendations, and seller-confirmation updates go to Strategy. Presentation-only refinements go to Prompt Builder. When an updated deck is also requested, invoke Prompt Builder after Strategy and pass the updated complete output; never qualify a resource in the Orchestrator or Prompt Builder.
+
 ## Handoff Contracts
 
 ### Orchestrator -> Strategy/Discovery/Prep
 - Full unmodified Customer Intelligence Report
-- Optional user context
+- Website URL if supplied and all optional user context, including segment and explicit seller confirmation
 - Any explicit user constraints
 
 ### Orchestrator -> Prompt Builder
 - Full unmodified Customer Intelligence Report
 - Complete strategy output from current conversation
+- Website URL if supplied and all optional context, including segment and explicit seller confirmation
 - Any deck-specific constraints
 
 ### Worker -> Orchestrator
 - User-ready output only
 - No internal schemas, processing traces, or hidden reasoning artifacts
+
+### Strategy Output -> Prompt Builder
+Strategy returns exactly:
+1. Sales Pitch Strategy, including recommended next steps.
+2. Tailored Discovery Questions.
+3. Available Resources, replacing the former internal Prep Brief.
+
+Resource entries distinguish evidenced purpose, minimum-criteria status, missing validation, and next action. ETC confirmation comes from the seller, not threshold logic. Partner content remains a generic seller reference.
+
+Strategy connects each recommendation to a confirmed signal, a customer outcome, and a validation-focused action. Fewer than two growth areas may be appropriate. A conservative Strategy B default with insufficient evidence is a discovery narrative, not proof of a capability gap. Unknown security readiness is neither a readiness finding nor an insecurity finding.
+
+Assessment evidence should show the relevant CIR quantity beside its threshold; do not aggregate unrelated populations or equate active Copilot users with purchased licenses. Identical Master Class minimums do not justify recommending both; customer purpose must support the choice. Discovery should address unresolved facts without embedding unverified deficiencies.
+
+Prompt Builder consumes this report without requiring a separate prep brief. Assessments need Strategy-supported minimum criteria before customer resource actions are included; uncertain availability leads to a confirmation action, not a delivery promise. ETC actions require seller-confirmed eligibility in Strategy. Only customer-appropriate actions appear on Slide 5; omit internal status notes and partner reminders from slides and presenter notes. No qualifying resource means ordinary evidence-based discovery/adoption next steps, not a fabricated alternative.
+
+The shared approved education template supports K-12 districts, universities, and community colleges. The five-slide contract and existing required field shapes are retained. Copilot expansion never establishes security readiness.
+
+Prompt Builder maps supported content into the existing slides without selecting a new product or changing eligibility. Unknown availability supports a confirmation action, not a delivery commitment. Its final internal check covers customer-safe source notes, all required fields, and the absence of fabricated use cases, metrics, timelines, stakeholders, or resources. These checks add no visible section or internal reasoning to the output.
+
+### Compatibility and Validation Status
+Section 3 has changed meaning despite the unchanged section count. Consumers expecting a Prep Brief must adopt the new contract. Historical Strategy outputs lack the new resource evidence; do not invent it. Refresh seller preparation under the new prompt when resources are needed.
+
+No fiscal-guidance handoff or required timing field is added. Runtime evaluations and their assets are paused, not passing; repository static checks do not validate orchestration in Copilot Studio.
 
 ## Shared Reusable Prompt Patterns
 Use these as common building blocks across agent prompts to reduce duplication.

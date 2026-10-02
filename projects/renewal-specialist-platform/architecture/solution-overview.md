@@ -8,7 +8,14 @@ This document is the architecture source of truth for the Renewal Specialist Pla
 
 The repository exists to define system behavior, agent boundaries, standards, tests, and change controls so runtime updates remain consistent and maintainable.
 
+The 2026-09-30 education/resource changes below are implemented in repository prompts and schema. Copilot Studio deployment and runtime validation are not evidenced; evaluation updates and execution are paused by user request.
+
 ## Platform Scope (Current State)
+
+### Education Accounts
+- K-12 districts, universities, and community colleges.
+- Verified institution terminology; neutral "education institution" when unknown. Never infer customer priorities or readiness from segment.
+- One shared approved education template; no segment-specific template selection.
 
 ### In Scope
 - Microsoft Copilot Studio agents
@@ -30,6 +37,7 @@ The repository exists to define system behavior, agent boundaries, standards, te
 - Session preparation
 - Opportunity analysis
 - Discovery support
+- Seller-facing Available Resources and customer-appropriate resource next steps
 - Customer-facing deck prompt generation
 
 ## Architecture Principles
@@ -64,9 +72,20 @@ Known runtime/prompt aliases:
 ## Responsibilities Matrix
 | Agent | Primary Responsibilities | Inputs | Outputs | Non-Goals / Guardrails |
 | --- | --- | --- | --- | --- |
-| Orchestrator Agent | Classify intent, enforce required input gating, route requests, coordinate multi-step workflow, handle retries | User request, Customer Intelligence Report, prior worker outputs | Final user-ready worker output(s), next-step prompt to continue workflow | Must not generate strategy/discovery/deck content itself; must not expose internal processing; must not fabricate data; deck-only request without prior strategy must run full workflow first |
-| Renewal Strategy / Discovery / Prep Agent | Produce consultative strategy, discovery questions, and internal prep brief from evidence | Customer Intelligence Report, optional context, approved internal guidance | Structured strategy/discovery/prep response | No pricing, discounting, negotiation, or deep implementation guidance; no invented customer facts |
-| Prompt Builder Agent | Produce ready-to-paste PowerPoint Copilot prompt aligned to selected strategy and evidence | Customer Intelligence Report, strategy output, approved guidance and public verification context | Single clean PowerPoint Copilot prompt | No JSON/internal schema in output; no fabricated data; no pricing/discounting/deep technical guidance |
+| Orchestrator Agent | Classify intent, enforce CIR gating, route requests, coordinate workflow and retries; pass supplied segment and seller confirmation | User request, CIR, optional context, prior worker outputs | Unchanged user-ready worker output(s), next-step prompt | No strategy/resource/deck creation or eligibility decisions; no internal processing exposed; deck without prior strategy runs full workflow |
+| Renewal Strategy / Discovery / Prep Agent | Select evidence-based growth areas, generate discovery, check assessment minimums, accept seller ETC confirmation | CIR, optional context including seller confirmation, approved guidance | Exactly three sections: Sales Pitch Strategy, Tailored Discovery Questions, Available Resources | No separate prep brief, fabricated facts, inferred security readiness, pricing, discounting, negotiation, or deep implementation |
+| Prompt Builder Agent | Present selected strategy and customer-appropriate resource actions using the approved education template | CIR, complete Strategy output, optional context, approved guidance and public verification | Single PowerPoint Copilot prompt for five slides | No independent assessment qualification, seller-only resource notes, JSON/schema, fabricated facts, or prohibited guidance |
+
+## Growth and Resource Ownership
+- Strategy evaluates Copilot expansion, A3 to A5, Azure migration, and security upsell as evidence-based options, never quotas. Retain adoption-led positioning for low adoption; an unsupported upsell is not required.
+- Copilot ownership or expansion interest does not prove security readiness. Strategy validates security, governance, data protection, and AI readiness independently; Prompt Builder preserves relevant gaps without inventing readiness.
+- Assessment minimums live in [the Strategy prompt](../agents/Renewal%20Strategy%20-%20Discovery%20Prep%20Agent%20/Prompt.md). Compare CIR-confirmed quantities using strict `>`; both Master Class conditions must pass. Missing/ambiguous quantities are "to confirm," not inferred from enrollment.
+- Numerical qualification, customer relevance, and service availability are distinct. Never promise assessment access or delivery from a threshold alone.
+- ETC eligibility is validated by the seller during the real call/session. All valid growth opportunities qualify once seller-confirmed; the agent does not independently qualify ETC or invent confirmation.
+- Partner resources are a generic seller reminder only, with no specific offerings or qualification recommendations.
+- Available Resources replaces the former internal Prep Brief as Section 3. This changes the content contract even though the section count remains three; do not relocate the removed brief.
+- The five-slide deck includes only customer-appropriate resource actions within existing Slide 5 fields. Internal qualification notes and generic partner reminders stay out of slides and presenter notes.
+- Runtime fiscal-guidance changes and new fiscal-guidance knowledge files are excluded. Existing source priorities remain unchanged; deployment timing is not a new input gate.
 
 ## Shared System Behavior
 All agents must follow shared rules unless a stricter agent-specific rule exists.
