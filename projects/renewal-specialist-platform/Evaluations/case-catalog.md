@@ -80,15 +80,15 @@ Strategy Agent Contract Compliance
 ```text
 Classify the agent answer as Pass or Fail by comparing it with the CIR and other facts in the user request.
 
-Pass when the answer selects exactly one primary strategy. Select Strategy A for clear low, uneven, or partial adoption. Select Strategy B for evidence-supported capability gaps with stronger adoption, or default conservatively to Strategy B when evidence is mixed or insufficient. Higher-priority CIR facts must prevail over lower-priority public or website context. Facts, Insights, and Signals must retain their supplied evidence status; an Insight or Signal must not be presented as a confirmed customer Fact. Unknown or conflicting facts must be identified neutrally and never estimated or invented. The answer must contain exactly three sections in this order: Sales Pitch Strategy, Tailored Discovery Questions, and Prep Brief. Recommendations and questions must align with the selected strategy and available evidence.
+Pass when the answer selects exactly one primary strategy. Select Strategy A for clear low, uneven, or partial adoption. Select Strategy B for evidence-supported capability gaps with stronger adoption, or default conservatively to Strategy B when evidence is mixed or insufficient. Higher-priority CIR facts must prevail over lower-priority public or website context. Facts, Insights, and Signals must retain their supplied evidence status; an Insight or Signal must not be presented as a confirmed customer Fact. Unknown or conflicting facts must be identified neutrally and never estimated or invented. The answer must contain exactly three sections in this order: Sales Pitch Strategy, Tailored Discovery Questions, and Available Resources. Recommendations and questions must align with the selected strategy and available evidence. Partner-program recommendations must contain at most three distinct candidates, use only customer criteria from the authorized guide, assume EDU unless the user explicitly states otherwise, and not assess segment independently. Any seat count derived from user-provided information must be labeled inferred, show its basis, and remain subject to validation. Partner prerequisites must not affect ranking. If guide access is unavailable, the answer must disclose that limitation and must not invent program names or rules.
 
-Fail when it selects no strategy or conflicting strategies; contradicts the CIR; treats lower-priority context as authoritative; promotes an Insight or Signal to a confirmed Fact; invents facts, intent, incidents, objections, quantities, or needs; omits or adds a top-level output section; or provides pricing, discounting, negotiation tactics, deep implementation steps, fear-based language, or sales pressure. Evaluate meaning and contract compliance, not exact wording or heading punctuation.
+Fail when it selects no strategy or conflicting strategies; contradicts the CIR; treats lower-priority context as authoritative; promotes an Insight or Signal to a confirmed Fact; invents facts, intent, incidents, objections, quantities, or needs; omits or adds a top-level output section; exceeds three partner-program candidates; uses partner prerequisites or independently reviewed segment to rank; treats an inferred count as confirmed; invents guide content when unavailable; or provides pricing, discounting, negotiation tactics, deep implementation steps, fear-based language, or sales pressure. Evaluate meaning and contract compliance, not exact wording or heading punctuation.
 ```
 
 **Label: Pass**
 
 ```text
-The answer selects one evidence-supported strategy, preserves source priority, handles unknowns safely, and provides the three required sections with aligned, consultative content.
+The answer selects one evidence-supported strategy, preserves source priority, handles unknowns safely, and provides the three required sections with aligned, consultative content. Any partner-program shortlist has no more than three entries and uses customer-only evidence; inferred user-provided counts remain labeled and require validation.
 
 Example: For 42% active use and uneven adoption, the answer selects Strategy A, focuses on realizing value from current A3 licensing, asks about adoption barriers, and marks advanced security needs as requiring validation.
 ```
@@ -192,6 +192,10 @@ Example: The Strategy output states that enrollment is unknown, but the deck pro
 | strategy-agent.csv row 4 | P0 | CIR authority over conflicting website context | Custom, Compare meaning |
 | strategy-agent.csv row 5 | P0 | Commercial and implementation guardrails | Custom, Compare meaning |
 | strategy-agent.csv row 6 | P0 | No fabricated incidents, objections, or pressure | Custom, Compare meaning |
+| manual-workflow-tests.md PARTNER-01 to PARTNER-05 | P0 | Three-program cap, EDU default, user-derived counts, partner-criteria exclusion, scoped customer exclusions, and unavailable-guide fallback | Custom, Compare meaning, Tool use when knowledge calls are observable |
+
+The Strategy CSV cases test the no-guide fallback and must run in an environment where the incentives guide is not connected. Guide-available ranking and criteria are covered by manual cases against the authorized runtime source. Do not use one environment's result to claim both source-available and source-unavailable behavior passed.
+Partner-program tests must use synthetic customer inputs and the authorized runtime guide. Do not copy confidential guide criteria, thresholds, payment details, candidate outputs, or runtime evidence into committed questions, expected responses, or screenshots.
 
 ## Prompt Builder Cases
 

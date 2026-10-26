@@ -58,7 +58,7 @@ For user refinements, re-invoke the appropriate worker agent with:
 2. Prior relevant output
 3. User's new constraints
 
-Resource criteria, growth recommendations, and seller-confirmation updates go to Strategy. Presentation-only refinements go to Prompt Builder. When an updated deck is also requested, invoke Prompt Builder after Strategy and pass the updated complete output; never qualify a resource in the Orchestrator or Prompt Builder.
+Resource criteria, partner-program assessments, growth recommendations, and seller-confirmation updates go to Strategy. Presentation-only refinements go to Prompt Builder. When an updated deck is also requested, invoke Prompt Builder after Strategy and pass the updated complete output; never qualify a resource in the Orchestrator or Prompt Builder.
 
 ## Handoff Contracts
 
@@ -83,13 +83,13 @@ Strategy returns exactly:
 2. Tailored Discovery Questions.
 3. Available Resources, replacing the former internal Prep Brief.
 
-Resource entries distinguish evidenced purpose, minimum-criteria status, missing validation, and next action. ETC confirmation comes from the seller, not threshold logic. Partner content remains a generic seller reference.
+Resource entries distinguish evidenced purpose, minimum-criteria status, missing validation, and next action. ETC confirmation comes from the seller, not threshold logic. Strategy may include at most three distinct partner programs/engagements, ranked by customer fit and grounded in the authorized runtime guide. Use customer criteria only; assume EDU unless the user explicitly states otherwise, and do not research segment. Any count derived from user-provided information is labeled inferred with its basis and a validation action. Ignore partner prerequisites. If guide access is unavailable, disclose the limitation rather than inventing program rules.
 
 Strategy connects each recommendation to a confirmed signal, a customer outcome, and a validation-focused action. Fewer than two growth areas may be appropriate. A conservative Strategy B default with insufficient evidence is a discovery narrative, not proof of a capability gap. Unknown security readiness is neither a readiness finding nor an insecurity finding.
 
 Assessment evidence should show the relevant CIR quantity beside its threshold; do not aggregate unrelated populations or equate active Copilot users with purchased licenses. Identical Master Class minimums do not justify recommending both; customer purpose must support the choice. Discovery should address unresolved facts without embedding unverified deficiencies.
 
-Prompt Builder consumes this report without requiring a separate prep brief. Assessments need Strategy-supported minimum criteria before customer resource actions are included; uncertain availability leads to a confirmation action, not a delivery promise. ETC actions require seller-confirmed eligibility in Strategy. Only customer-appropriate actions appear on Slide 5; omit internal status notes and partner reminders from slides and presenter notes. No qualifying resource means ordinary evidence-based discovery/adoption next steps, not a fabricated alternative.
+Prompt Builder consumes this report without requiring a separate prep brief. Assessments need Strategy-supported minimum criteria before customer resource actions are included; uncertain availability leads to a confirmation action, not a delivery promise. ETC actions require seller-confirmed eligibility in Strategy. Partner-program assessments are seller-only and must not appear on slides or in presenter notes. Only customer-appropriate actions appear on Slide 5. No qualifying resource means ordinary evidence-based discovery/adoption next steps, not a fabricated alternative.
 
 The shared approved education template supports K-12 districts, universities, and community colleges. The five-slide contract and existing required field shapes are retained. Copilot expansion never establishes security readiness.
 

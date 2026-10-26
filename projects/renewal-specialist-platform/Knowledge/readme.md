@@ -24,6 +24,9 @@ Use highest-priority available source when conflicts occur.
 ## Public Web Use Constraints
 Public web data may be used only for high-level institution verification (type, size band, rural/urban context). It must not be used to infer tenant-specific usage, confidential plans, or contract specifics.
 
+## Partner Incentives Guide
+The Microsoft Commercial Partner Incentives Guide is a program-rules source only; it is not evidence about a customer's facts. Keep the confidential guide and its extracts in authorized runtime knowledge only. Do not commit the PDF, program-specific criteria, thresholds, payment details, or customer data derived from it to this repository or its evaluation assets. Strategy must disclose when the guide is unavailable rather than inventing program rules. Partner criteria must not be used in customer-fit ranking.
+
 ## Ownership and Freshness Cadence
 1. Assign owner for each source set.
 2. Review critical sources monthly.

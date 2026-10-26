@@ -37,7 +37,7 @@ The evaluation package includes:
 
 These assets are executed manually in Copilot Studio. They are not part of CI/CD or a development test pipeline. The initial runtime baseline remains pending until execution evidence is captured.
 
-**Education/resource change status:** Evaluation files, fixtures, expected responses, imports, and execution are intentionally unchanged and paused pending user review. Existing checks expecting an internal Prep Brief do not represent the revised Section 3 contract. The future regression checklist is recorded below; static prompt/schema checks are not runtime passes.
+**Evaluation status:** CSV expected responses now use the Available Resources contract and explicitly test the unavailable-guide fallback. Guide-available ranking is covered by manual runtime scenarios. Copilot Studio imports and execution remain pending; static checks are not runtime passes.
 
 ## Releases
 See [Releases/README.md](Releases/README.md).
@@ -91,6 +91,29 @@ The expanded execution instructions also need later coverage for account switche
 
 ### Architecture Considerations
 Reuse the existing three agents and the same presentation template. Keep assessment thresholds in Strategy rather than duplicating qualification logic in Orchestrator or Prompt Builder. Preserve source priority, CIR gating, intent priority, pass-through, and retry contracts.
+
+## Significant Change Review: 2026-10-26
+
+### Summary
+Add a seller-facing shortlist of up to three likely-fit partner programs to Strategy's existing Available Resources section. Assume EDU unless the user explicitly states otherwise. Do not independently review segment. Counts may be derived only from user-provided facts, with the basis labeled and validated. Partner prerequisites do not affect ranking.
+
+### Impact Analysis
+Strategy owns guide-based customer-fit analysis. The Orchestrator retains existing routing and pass-through behavior; Prompt Builder must keep the seller-only shortlist out of customer slides and notes. No new agent, tool, required input, or top-level output section is added.
+
+### Risks and Mitigations
+- Confidential guide content could be exposed: keep the guide and program-specific details in authorized runtime knowledge; do not commit extracts or runtime evidence.
+- Unsupported eligibility could be implied: cap the shortlist at three, show customer evidence and validation actions, and separate fit from availability.
+- Inferred counts could alter ranking: identify the user-provided calculation basis and mark the result for validation.
+- The guide may not be accessible: Strategy discloses the limitation and does not invent programs or rules.
+
+### Recommended Updates
+The Strategy prompt, solution overview, agent handoff, knowledge governance, evaluation guidance, and release record are updated together. No Orchestrator or Prompt Builder prompt change is required.
+
+### Testing Recommendations
+Run PARTNER-01 through PARTNER-03 and PARTNER-05 with the authorized guide, and PARTNER-04 without it, using synthetic inputs. Preserve existing workflow regression coverage. Runtime execution and publication are pending; repository checks do not establish a runtime pass.
+
+### Architecture Considerations
+The existing Strategy agent owns this capability. Guide criteria are separate from customer facts, and partner-only eligibility is out of scope. The existing three-section response and role boundaries remain unchanged.
 
 ## Documentation Standards
 Keep documentation concise, maintainable, and system-oriented.

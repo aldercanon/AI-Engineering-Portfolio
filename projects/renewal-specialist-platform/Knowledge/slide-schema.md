@@ -202,7 +202,7 @@
 - Strategy owns minimum-criteria checks. Do not independently qualify assessments or infer counts from student/staff totals.
 - Assessment actions require supported minimum criteria. If availability is unconfirmed, propose confirming availability; never promise access or delivery.
 - ETC actions require explicit seller-confirmed eligibility in Strategy; omit pending ETC qualification from customer content.
-- Keep internal criteria/status notes and generic partner-resource reminders out of both slides and presenter notes.
+- Keep internal criteria/status notes and all seller-only partner-program assessments out of slides and presenter notes.
 - When no resource qualifies, retain evidence-based discovery/adoption next steps.
 
 ---
@@ -230,6 +230,10 @@ Before finalizing generated presentation, verify:
 ---
 
 ## Version History
+
+### v1.3 (2026-10-26)
+- Documented the seller-only partner-program assessment handoff; Prompt Builder does not qualify or present partner programs.
+- No slide, field, or template changes. Runtime guide access and behavior remain unvalidated.
 
 ### v1.2 (2026-09-30)
 - Expanded audience to K-12 districts, universities, and community colleges using the same approved education template.

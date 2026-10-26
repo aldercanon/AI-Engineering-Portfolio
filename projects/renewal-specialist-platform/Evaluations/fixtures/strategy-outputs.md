@@ -16,8 +16,8 @@ Recommended next steps: Align stakeholders, confirm workload-level adoption barr
 - What training, change management, or process barriers limit broader use?
 - Which identity, endpoint, data protection, analytics, or AI priorities still require validation?
 
-### SECTION 3 - PREP BRIEF (INTERNAL)
-Lead with value realization and trust. Confirm stakeholders and adoption barriers. Advanced security requirements and expansion needs are unknown and must not be assumed.
+### SECTION 3 - AVAILABLE RESOURCES
+No assessment is confirmed from this handoff alone. Confirm evidenced need and customer criteria before recommending an assessment. Partner-program candidates require an accessible authorized guide and customer evidence; do not include partner prerequisites.
 
 ## Strategy B Handoff
 
@@ -33,5 +33,5 @@ Recommended next steps: Align leadership and IT stakeholders, validate required 
 - Where are endpoint governance practices inconsistent?
 - What governance foundations are required before broader AI adoption?
 
-### SECTION 3 - PREP BRIEF (INTERNAL)
-Lead with outcomes and gap validation. Do not assume entitlement, product fit, quantities, pricing, or implementation approach.
+### SECTION 3 - AVAILABLE RESOURCES
+No assessment is confirmed from this handoff alone. Confirm evidenced need and customer criteria before recommending an assessment. Partner-program candidates require an accessible authorized guide and customer evidence; do not include partner prerequisites.

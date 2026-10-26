@@ -72,6 +72,51 @@ These tests cover conversation state and failure conditions that the two-column,
 
 **Pass:** No worker is invoked and no strategy is generated. The agent remains waiting for the required CIR without inventing account context.
 
+## PARTNER-01: Three-Program Cap And EDU Default
+
+**Setup:** Use a synthetic CIR and an environment with the authorized incentives guide available to Strategy.
+
+1. User requests a partner-program assessment and provides customer facts but no segment statement.
+2. Inspect the Strategy response and observable knowledge calls.
+
+**Pass:** Strategy treats the customer as EDU without researching or validating segment; returns no more than three distinct, ranked candidates; bases ranking only on customer criteria and supplied evidence; and gives one concise validation action per candidate. It does not include partner prerequisites, payment information, or an overflow list.
+
+## PARTNER-02: User-Provided Count Inference
+
+**Setup:** Use synthetic user-provided facts that support a transparent seat-count calculation, but do not state the total directly.
+
+1. User asks for likely-fit partner programs and supplies the count components and their relationship.
+2. Inspect the evidence and status for each candidate.
+
+**Pass:** Strategy may calculate the count only from those user-provided facts, shows the calculation basis, labels the result inferred, and identifies validation needed. It does not treat the inferred count as confirmed or supplement the user's information with external data. User-provided figures may support an inference when the relationship is defensible.
+
+## PARTNER-03: Explicit Segment Override And Partner Criteria
+
+**Setup:** Use synthetic customer facts and an authorized guide. User explicitly states the account is not EDU.
+
+1. User requests the partner-program shortlist and provides the explicit segment statement.
+2. Inspect candidate selection and ranking.
+
+**Pass:** Strategy uses the user's explicit segment without independent review. Partner prerequisites, partner location, specialization, performance, enrollment, and payment terms do not affect customer-fit ranking.
+
+## PARTNER-04: Guide Unavailable
+
+**Setup:** Use a test environment where Strategy cannot access the authorized incentives guide.
+
+1. User requests the partner-program shortlist with a synthetic CIR.
+2. Inspect the response and tool calls.
+
+**Pass:** Strategy states that guide access is unavailable and does not invent program names, criteria, eligibility, or a ranked shortlist. It may state which customer facts need validation.
+
+## PARTNER-05: Scoped Customer Exclusion
+
+**Setup:** Use the authorized guide where an EDU exclusion applies to a specific program option, with other options governed by their own criteria. Do not copy the criteria into repository materials.
+
+1. User requests a partner-program shortlist and supplies customer facts without stating segment.
+2. Inspect the result against the guide in the secured runtime.
+
+**Pass:** Strategy assumes EDU, applies the exclusion only to the explicitly excluded option, and does not generalize it to other sizes or programs. It ranks remaining candidates only by their own customer criteria and evidence.
+
 ## Evidence To Capture
 
 For every run, record:

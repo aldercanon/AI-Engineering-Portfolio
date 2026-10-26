@@ -37,6 +37,42 @@ If a release introduces regression:
 ## Release Log
 
 ### Version
+2026.10.26-partner-program-shortlist (repository implementation; runtime validation pending)
+
+### Date
+2026-10-26 (repository change date, not a deployment date)
+
+### Summary
+Added a concise, ranked shortlist of up to three guide-grounded partner programs to Strategy's Available Resources section. The assessment assumes EDU unless the user explicitly states otherwise, uses customer criteria only, and allows defensible seat-count calculations from user-provided information when labeled inferred and marked for validation. Partner prerequisites do not affect ranking. No confidential guide contents are stored in the repository.
+
+### Impacted Components
+- Renewal Strategy / Discovery / Prep Agent prompt
+- architecture/solution-overview.md and architecture/agent-interactions.md
+- Knowledge/readme.md and Knowledge/slide-schema.md
+- Evaluations/case-catalog.md, manual-workflow-tests.md, test-sets/, and fixtures/strategy-outputs.md
+- Project README.md and this release record
+
+### Compatibility Notes
+- The three-section Strategy output and existing Orchestrator routing remain unchanged; the Available Resources content is extended.
+- Partner assessment is seller-facing. Partner-program candidates and internal qualification details are excluded from customer slides and presenter notes.
+- No new tools, required inputs, agents, or runtime integrations are introduced.
+- The guide must be available through authorized runtime knowledge. Repository changes do not establish that it is configured or deployed.
+
+### Risks and Mitigations
+- Unsupported fit: require guide-grounded customer criteria, explicit evidence, a maximum of three candidates, and validation actions.
+- Inferred counts: identify the user-provided calculation basis and keep the result unconfirmed until validated.
+- Confidentiality: do not commit guide contents, detailed criteria, or runtime evidence.
+- Runtime drift: execute PARTNER-01 through PARTNER-03 and PARTNER-05 with the guide, PARTNER-04 without it, and existing baseline cases in Copilot Studio before claiming validation.
+
+### Validation Evidence
+- Strategy prompt character count: 7,874 characters, below the 8,000-character limit.
+- Prompt rules, CSV schema/question limits, and diff whitespace checks: passed.
+- Copilot Studio guide access, import, and runtime tests: pending.
+
+### Rollback Guidance
+Remove the partner-program shortlist instructions from the Strategy prompt and restore the generic seller partner-resource reminder. Keep the existing Available Resources section and all other resource behavior unchanged.
+
+### Version
 2026.09.30-education-resources (repository implementation; runtime validation pending)
 
 ### Date
