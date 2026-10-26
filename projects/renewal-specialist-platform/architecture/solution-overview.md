@@ -8,7 +8,6 @@ This document is the architecture source of truth for the Renewal Specialist Pla
 
 The repository exists to define system behavior, agent boundaries, standards, tests, and change controls so runtime updates remain consistent and maintainable.
 
-The 2026-09-30 education/resource changes below are implemented in repository prompts and schema. Copilot Studio deployment and runtime validation are not evidenced; evaluation updates and execution are paused by user request.
 
 ## Platform Scope (Current State)
 
