@@ -117,6 +117,15 @@ These tests cover conversation state and failure conditions that the two-column,
 
 **Pass:** Strategy assumes EDU, applies the exclusion only to the explicitly excluded option, and does not generalize it to other sizes or programs. It ranks remaining candidates only by their own customer criteria and evidence.
 
+## RESOURCES-01: Two Subsections And Separate Caps
+
+**Setup:** Use synthetic customer facts with the authorized incentives guide connected and at least one evidenced Microsoft resource need.
+
+1. User requests Available Resources and supplies facts that may support multiple Microsoft and partner-led options.
+2. Inspect Section 3 headings, resource counts, evidence, and the Prompt Builder output if a deck is requested.
+
+**Pass:** Available Resources has exactly two subsections, in order: Microsoft Resources and Partner-Led Resources. It returns no more than two total assessments/masterclasses and no more than three distinct partner-led programs; unsupported or unavailable items are not used to pad either list. Microsoft qualification follows existing thresholds. Partner ranking ignores partner prerequisites. Prompt Builder excludes partner-led names, rankings, fit evidence, and validation notes from slides and presenter notes.
+
 ## Evidence To Capture
 
 For every run, record:

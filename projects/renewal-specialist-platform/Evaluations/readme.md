@@ -53,7 +53,7 @@ Do not use Text similarity for these generative responses. Do not use Exact matc
 
 The exact Custom instructions and row-level method recommendations are in `case-catalog.md`.
 
-Partner-program coverage is split by source state. Run the Strategy CSV cases that expect the unavailable-guide fallback in an environment without the guide connected. Run guide-available shortlist cases PARTNER-01 to PARTNER-03 and PARTNER-05 only where the approved guide is connected; run PARTNER-04 with it unavailable. Do not commit guide-specific rules, thresholds, candidate names, or runtime output evidence to the repository.
+Partner-program coverage is split by source state. Run Strategy CSV cases expecting the unavailable-guide fallback without the guide connected. Run guide-available shortlist cases PARTNER-01 to PARTNER-03 and PARTNER-05 only where the guide is connected; run PARTNER-04 without it. RESOURCES-01 checks the two-subsection contract, separate caps, and customer/seller boundary. Do not commit guide-specific rules, thresholds, candidate names, or runtime output evidence.
 
 ## Runtime Execution
 

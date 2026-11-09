@@ -37,7 +37,7 @@ The evaluation package includes:
 
 These assets are executed manually in Copilot Studio. They are not part of CI/CD or a development test pipeline. The initial runtime baseline remains pending until execution evidence is captured.
 
-**Evaluation status:** CSV expected responses now use the Available Resources contract and explicitly test the unavailable-guide fallback. Guide-available ranking is covered by manual runtime scenarios. Copilot Studio imports and execution remain pending; static checks are not runtime passes.
+**Evaluation status:** CSV expected responses use the two-subsection Available Resources contract and unavailable-guide fallback. Guide-available ranking, separate resource caps, and deck filtering are covered by manual runtime scenarios. Copilot Studio imports and execution remain pending; static checks are not runtime passes.
 
 ## Releases
 See [Releases/README.md](Releases/README.md).
@@ -95,10 +95,10 @@ Reuse the existing three agents and the same presentation template. Keep assessm
 ## Significant Change Review: 2026-10-26
 
 ### Summary
-Add a seller-facing shortlist of up to three likely-fit partner programs to Strategy's existing Available Resources section. Assume EDU unless the user explicitly states otherwise. Do not independently review segment. Counts may be derived only from user-provided facts, with the basis labeled and validated. Partner prerequisites do not affect ranking.
+Split Strategy's Available Resources into exactly two subsections: up to two evidence-supported Microsoft assessments/masterclasses and up to three customer-ranked partner-led programs. Assume EDU unless the user explicitly states otherwise. Do not independently review segment. Counts may be derived only from user-provided facts, with the basis labeled and validated. Partner prerequisites do not affect ranking.
 
 ### Impact Analysis
-Strategy owns guide-based customer-fit analysis. The Orchestrator retains existing routing and pass-through behavior; Prompt Builder must keep the seller-only shortlist out of customer slides and notes. No new agent, tool, required input, or top-level output section is added.
+Strategy owns both resource subsections and their limits. Prompt Builder consumes the unchanged three-section output and excludes partner-led details from customer slides and notes. Orchestrator routing and pass-through behavior remain unchanged. No new agent, tool, required input, or top-level output section is added.
 
 ### Risks and Mitigations
 - Confidential guide content could be exposed: keep the guide and program-specific details in authorized runtime knowledge; do not commit extracts or runtime evidence.
@@ -107,10 +107,10 @@ Strategy owns guide-based customer-fit analysis. The Orchestrator retains existi
 - The guide may not be accessible: Strategy discloses the limitation and does not invent programs or rules.
 
 ### Recommended Updates
-The Strategy prompt, solution overview, agent handoff, knowledge governance, evaluation guidance, and release record are updated together. No Orchestrator or Prompt Builder prompt change is required.
+The Strategy and Prompt Builder prompts, solution overview, agent handoff, slide schema, evaluation guidance, and release record are updated together. No Orchestrator prompt change is required.
 
 ### Testing Recommendations
-Run PARTNER-01 through PARTNER-03 and PARTNER-05 with the authorized guide, and PARTNER-04 without it, using synthetic inputs. Preserve existing workflow regression coverage. Runtime execution and publication are pending; repository checks do not establish a runtime pass.
+Run RESOURCES-01, PARTNER-01 through PARTNER-03, and PARTNER-05 with the authorized guide; run PARTNER-04 without it. Preserve existing workflow regression coverage. Runtime execution and publication are pending; repository checks do not establish a runtime pass.
 
 ### Architecture Considerations
 The existing Strategy agent owns this capability. Guide criteria are separate from customer facts, and partner-only eligibility is out of scope. The existing three-section response and role boundaries remain unchanged.

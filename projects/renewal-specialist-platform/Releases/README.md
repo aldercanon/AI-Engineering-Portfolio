@@ -37,6 +37,41 @@ If a release introduces regression:
 ## Release Log
 
 ### Version
+2026.10.26-resource-subsections (repository implementation; runtime validation pending)
+
+### Date
+2026-10-26 (repository change date, not a deployment date)
+
+### Summary
+Split Strategy's Available Resources into exactly two subsections: Microsoft Resources (up to two evidence-supported assessments/masterclasses total) and Partner-Led Resources (up to three ranked programs). Kept the three top-level output sections, existing Microsoft assessment thresholds, EDU default, customer-only partner ranking, and seller/customer boundary.
+
+### Impacted Components
+- Renewal Strategy / Discovery / Prep Agent and Prompt Builder prompts
+- architecture/solution-overview.md and architecture/agent-interactions.md
+- Knowledge/slide-schema.md
+- Evaluations/case-catalog.md, manual-workflow-tests.md, fixtures, and test sets
+- Project README.md and this release record
+
+### Compatibility Notes
+- Top-level Strategy output remains three sections; Section 3 now requires two named subsections in order.
+- Microsoft Resources lists no more than two total assessments/masterclasses. Partner-Led Resources lists no more than three customer-ranked programs.
+- Prompt Builder consumes both subsections but uses only customer-appropriate Microsoft resource actions; partner-led details remain seller-facing.
+- No Orchestrator routing, tool, required input, or runtime integration changes.
+
+### Risks and Mitigations
+- More items could be mistaken for stronger recommendations: enforce independent caps, evidence requirements, and no-padding behavior.
+- Partner-led details could leak into customer slides: Prompt Builder explicitly excludes names, rankings, evidence, and seller validation notes.
+- Microsoft resource criteria could drift: retain existing thresholds and seller confirmation rules; test the separate resource caps.
+
+### Validation Evidence
+- Strategy prompt: 7,494 characters; Prompt Builder prompt: 7,781 characters; both below the 8,000-character limit.
+- Evaluation CSV structure and question limits, subsection expectations, prompt rules, and whitespace checks: passed.
+- Copilot Studio imports, guide availability, and runtime tests: pending.
+
+### Rollback Guidance
+Restore the prior Strategy and Prompt Builder prompts together. Strategy returns to a single Available Resources section with the prior assessment and partner shortlist behavior; Prompt Builder returns to its earlier handoff wording. Keep repository contracts and published prompts synchronized.
+
+### Version
 2026.10.26-partner-program-shortlist (repository implementation; runtime validation pending)
 
 ### Date

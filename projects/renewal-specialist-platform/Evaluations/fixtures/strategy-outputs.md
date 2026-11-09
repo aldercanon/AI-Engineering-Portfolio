@@ -17,7 +17,11 @@ Recommended next steps: Align stakeholders, confirm workload-level adoption barr
 - Which identity, endpoint, data protection, analytics, or AI priorities still require validation?
 
 ### SECTION 3 - AVAILABLE RESOURCES
-No assessment is confirmed from this handoff alone. Confirm evidenced need and customer criteria before recommending an assessment. Partner-program candidates require an accessible authorized guide and customer evidence; do not include partner prerequisites.
+#### Microsoft Resources
+No assessment is confirmed from this handoff alone. Confirm evidenced need and customer criteria before recommending an assessment.
+
+#### Partner-Led Resources
+The authorized guide is unavailable in this fixture; do not invent programs or criteria.
 
 ## Strategy B Handoff
 
@@ -34,4 +38,8 @@ Recommended next steps: Align leadership and IT stakeholders, validate required 
 - What governance foundations are required before broader AI adoption?
 
 ### SECTION 3 - AVAILABLE RESOURCES
-No assessment is confirmed from this handoff alone. Confirm evidenced need and customer criteria before recommending an assessment. Partner-program candidates require an accessible authorized guide and customer evidence; do not include partner prerequisites.
+#### Microsoft Resources
+No assessment is confirmed from this handoff alone. Confirm evidenced need and customer criteria before recommending an assessment.
+
+#### Partner-Led Resources
+The authorized guide is unavailable in this fixture; do not invent programs or criteria.

@@ -158,7 +158,7 @@
 ### Education Context and Strategy Handoff
 - Support K-12 districts, universities, and community colleges using the same approved education template.
 - Use verified institution terminology; do not infer priorities, quantities, or readiness from segment.
-- Consume Strategy's three sections: Sales Pitch Strategy, Tailored Discovery Questions, Available Resources. No separate internal prep brief is expected.
+- Consume Strategy's three sections: Sales Pitch Strategy, Tailored Discovery Questions, and Available Resources, which has exactly two subsections: Microsoft Resources and Partner-Led Resources. No separate internal prep brief is expected.
 - Preserve Strategy's evidence-based growth selection. Copilot ownership or expansion interest does not establish security readiness; retain relevant gaps and unknowns in customer-appropriate language.
 
 ### Slide 2: Institution Table
@@ -198,11 +198,11 @@
 - **Slide 5 (Next Steps):** Collaborative tone; no pressure language
 
 ### Slide 5: Resource Actions
-- Use relevant actions from Strategy's Available Resources within existing immediate, mid-term, or pre-renewal fields; no extra slide or resource catalog.
+- Use customer-appropriate Microsoft actions from Available Resources within existing immediate, mid-term, or pre-renewal fields; no extra slide or resource catalog. Partner-Led Resources remain seller-facing.
 - Strategy owns minimum-criteria checks. Do not independently qualify assessments or infer counts from student/staff totals.
 - Assessment actions require supported minimum criteria. If availability is unconfirmed, propose confirming availability; never promise access or delivery.
 - ETC actions require explicit seller-confirmed eligibility in Strategy; omit pending ETC qualification from customer content.
-- Keep internal criteria/status notes and all seller-only partner-program assessments out of slides and presenter notes.
+- Keep internal criteria/status notes and all Partner-Led Resources and partner-program details out of slides and presenter notes.
 - When no resource qualifies, retain evidence-based discovery/adoption next steps.
 
 ---
@@ -234,6 +234,10 @@ Before finalizing generated presentation, verify:
 ### v1.3 (2026-10-26)
 - Documented the seller-only partner-program assessment handoff; Prompt Builder does not qualify or present partner programs.
 - No slide, field, or template changes. Runtime guide access and behavior remain unvalidated.
+
+### v1.4 (2026-10-26)
+- Updated Strategy handoff to split Available Resources into Microsoft Resources and Partner-Led Resources.
+- Prompt Builder uses customer-appropriate Microsoft resource actions only; partner-led details remain seller-facing. No slide, field, or template changes.
 
 ### v1.2 (2026-09-30)
 - Expanded audience to K-12 districts, universities, and community colleges using the same approved education template.
